@@ -21,9 +21,14 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val args: DetailFragmentArgs by navArgs()
         binding.item = args.item
-        return binding.root
     }
 
     override fun onDestroyView() {

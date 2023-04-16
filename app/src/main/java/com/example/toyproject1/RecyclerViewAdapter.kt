@@ -3,13 +3,13 @@ package com.example.toyproject1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.toyproject1.databinding.ListItemBinding
 import com.example.toyproject1.network.Item
 
-class RecyclerViewAdapter(val clickListener: (Item) -> Unit): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
+class RecyclerViewAdapter(val clickListener: (Item) -> Unit)
+    : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
 
-    var dataList: List<Item>? = null
+    var dataList: List<Item> = listOf()
 
     class ViewHolder(private var itemBinding: ListItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item: Item){
@@ -24,11 +24,11 @@ class RecyclerViewAdapter(val clickListener: (Item) -> Unit): RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        return dataList?.size ?: 0
+        return dataList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = dataList?.get(position)!!
+        val item = dataList[position]
         holder.bind(item)
         holder.itemView.setOnClickListener {
             clickListener(item)

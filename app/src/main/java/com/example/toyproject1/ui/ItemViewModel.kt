@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class ItemViewModel: ViewModel() {
 
-    private var _allData = MutableLiveData<List<Item>>()
+    private val _allData = MutableLiveData<List<Item>>()
     val allData: LiveData<List<Item>> get() = _allData
 
     init {

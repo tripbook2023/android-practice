@@ -24,7 +24,11 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val adapter = RecyclerViewAdapter { item ->
             val action = ListFragmentDirections.actionListFragmentToDetailFragment(item)
             findNavController().navigate(action)
@@ -36,7 +40,6 @@ class ListFragment : Fragment() {
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
-        return binding.root
     }
 
     override fun onDestroyView() {
