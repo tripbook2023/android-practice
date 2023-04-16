@@ -13,7 +13,6 @@ class RecyclerViewAdapter(val clickListener: (Item) -> Unit): RecyclerView.Adapt
 
     class ViewHolder(private var itemBinding: ListItemBinding): RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item: Item){
-            itemBinding.view = itemView
             itemBinding.item = item
             itemBinding.executePendingBindings() // 바인딩 데이터 즉각 변경
         }

@@ -16,16 +16,9 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Item>?){
     adapter.notifyDataSetChanged()
 }
 
-@BindingAdapter("imgSrc", "provideView")
-fun bindImageView(imgView: ImageView, data: String, view: View){
-    Glide.with(view)
-        .load(data)
-        .into(imgView)
-}
-
-@BindingAdapter("imgSrc", "provideView")
-fun bindImageFragment(imgView: ImageView, data: String, view: Fragment){
-    Glide.with(view)
+@BindingAdapter("imgSrc")
+fun bindImageView(imgView: ImageView, data: String){
+    Glide.with(imgView.context)
         .load(data)
         .into(imgView)
 }
