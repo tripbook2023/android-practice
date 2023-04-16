@@ -23,7 +23,6 @@ class DetailFragment : Fragment() {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false)
         val args: DetailFragmentArgs by navArgs()
         binding.item = args.item
-        binding.view = this
         return binding.root
     }
 

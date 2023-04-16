@@ -4,10 +4,6 @@
 
     <data>
         <variable
-            name="view"
-            type="android.view.View" />
-
-        <variable
             name="item"
             type="com.example.toyproject1.network.Item" />
     </data>
@@ -26,8 +22,7 @@
             android:layout_margin="5dp"
             app:imgSrc="@{item.avatarUrl}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:provideView="@{view}" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/id_label"
