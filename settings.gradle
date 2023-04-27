@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "SuyeonToyProject"
-include (":presentation")
-include (":app:data")
-include (":data")
-include (":domain")
+include ':presentation'
+include ':app:data'
+include ':data'
+include ':domain'

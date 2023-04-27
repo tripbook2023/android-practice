@@ -6,12 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tripbook.data.model.Users
 import com.tripbook.data.repository.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class MainViewModel : ViewModel() {
-
-    private val repository = Repository()
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: Repository
+): ViewModel() {
 
     private val result = MutableLiveData<List<Users>>()
     val result2 : LiveData<List<Users>>

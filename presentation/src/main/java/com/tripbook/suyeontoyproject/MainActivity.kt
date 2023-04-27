@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tripbook.suyeontoyproject.adapter.CustomAdapter
 import com.tripbook.suyeontoyproject.viewModel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     //@SuppressLint("SuspiciousIndentation")

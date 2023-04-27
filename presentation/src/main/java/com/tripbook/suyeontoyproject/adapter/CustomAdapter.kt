@@ -11,7 +11,7 @@ import com.tripbook.suyeontoyproject.databinding.TextApiBinding
 import com.tripbook.data.model.Users
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class CustomAdapter(val context: Context, val dataSet : List<Users>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
       class ViewHolder(private val binding: TextApiBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -19,14 +19,16 @@ class CustomAdapter(val context: Context, val dataSet : List<Users>) : RecyclerV
               binding.user = user
               binding.executePendingBindings()
           }
-
-          @BindingAdapter("imgSrc") //이거 수정하기
-          fun bindIamgeView(imageView: ImageView, data:String) {
-              Glide.with(imageView.context)
-                  .load(data)
-                  .into(imageView)
+          @BindingAdapter("imgSrc")
+          fun bindIamgeView(imageView: ImageView, data: String?) {
+              if (!data.isNullOrEmpty()) {
+                  Glide.with(imageView.context)
+                      .load(data)
+                      .into(imageView)
+              }
           }
-    }
+
+      }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -38,16 +40,11 @@ class CustomAdapter(val context: Context, val dataSet : List<Users>) : RecyclerV
         val user = dataSet[position]
         holder.bind(user)
 
-/*       Glide.with(context)
-            .load(user.avatarUrl)
-            .into(holder.imageView)*/
-
     }
 
     override fun getItemCount(): Int {
         return dataSet.size
     }
-
 
 }
 

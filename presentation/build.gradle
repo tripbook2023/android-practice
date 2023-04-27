@@ -1,8 +1,8 @@
 plugins {
-    id ("com.android.application")
-    id ("org.jetbrains.kotlin.android")
-    //id 'dagger.hilt.android.plugin'
-    id ("kotlin-kapt")
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+   // id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -10,17 +10,17 @@ android {
     compileSdk 33
 
     dataBinding {
-        enabled  true
+        enabled true
     }
 
     defaultConfig {
-        applicationId "com.tripbook.suyeontoyproject"
-        minSdk 24
-        targetSdk 32
+        applicationId 'com.tripbook.suyeontoyproject'
+        minSdk 21
+        targetSdk 33
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
@@ -49,6 +49,7 @@ dependencies {
     implementation project(':domain')
 
 
+/*
     implementation(Libraries.AndroidX.APP_COMPAT)
     implementation(Libraries.AndroidX.MATERIAL)
     implementation(Libraries.AndroidX.CONSTRAINT_LAYOUT)
@@ -58,15 +59,16 @@ dependencies {
     testImplementation(Libraries.TEST.JUNIT_TEST)
     androidTestImplementation(Libraries.AndroidTest.JUNIT)
     androidTestImplementation(Libraries.AndroidTest.ESPRESSO_CORE)
+*/
 
 
-    implementation(Libraries.Glide.GILDE)
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
-    implementation(Libraries.Viewmodel.VIEW_MODEL)
+  //  implementation(Libraries.Glide.GILDE)
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
+/*    implementation(Libraries.Viewmodel.VIEW_MODEL)
     implementation(Libraries.Coroutines.COROUTINES)
-    implementation(Libraries.Hilt.HILT)
+    implementation(Libraries.Hilt.HILT)*/
 
-/*    implementation 'androidx.core:core-ktx:1.7.0'
+   implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -85,6 +87,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
 
     //hilt
-    implementation ("com.google.dagger:hilt-android:2.44")*/
+    implementation ("com.google.dagger:hilt-android:2.44")
 
 }
