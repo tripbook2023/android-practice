@@ -1,4 +1,4 @@
-package com.example.toyproject1.ui
+package com.example.toyproject1.ui.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.toyproject1.R
 import com.example.toyproject1.databinding.FragmentDetailBinding
-
 class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
@@ -21,7 +20,6 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false)
-
         return binding.root
     }
 

@@ -1,17 +1,19 @@
-package com.example.toyproject1
+package com.example.toyproject1.ui
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.toyproject1.network.Item
+import com.example.toyproject1.data.model.ItemEntity
+import com.example.toyproject1.ui.RecyclerViewAdapter
 
 
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<Item>){
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<ItemEntity>?){
     val adapter = recyclerView.adapter as RecyclerViewAdapter
-    adapter.dataList = data
-    adapter.notifyItemRangeInserted(0, data.size)
+    if (data != null) {
+        adapter.submitList(data)
+    }
 }
 
 @BindingAdapter("imgSrc")

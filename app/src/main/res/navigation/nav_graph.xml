@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.toyproject1.ui.ListFragment"
+        android:name="com.example.toyproject1.ui.views.ListFragment"
         android:label="List"
         tools:layout="@layout/fragment_list" >
         <action
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.toyproject1.ui.DetailFragment"
+        android:name="com.example.toyproject1.ui.views.DetailFragment"
         android:label="Detail"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="item"
-            app:argType="com.example.toyproject1.network.Item"/>
+            app:argType="com.example.toyproject1.data.model.ItemEntity"/>
     </fragment>
 </navigation>

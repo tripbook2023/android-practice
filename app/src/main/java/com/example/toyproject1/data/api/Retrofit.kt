@@ -1,7 +1,9 @@
-package com.example.toyproject1.network
+package com.example.toyproject1.data.api
 
+import com.example.toyproject1.data.model.ItemEntity
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -20,7 +22,7 @@ private val retrofit = Retrofit.Builder()
 
 interface RetrofitService {
     @GET("/users")
-    fun getAllData(): Call<List<Item>>
+    suspend fun getAllItem(): List<ItemEntity>
 }
 
 object RetrofitApi{

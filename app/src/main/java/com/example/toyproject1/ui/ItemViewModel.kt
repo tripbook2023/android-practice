@@ -1,36 +1,51 @@
 package com.example.toyproject1.ui
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.toyproject1.network.Item
-import com.example.toyproject1.network.RetrofitApi
+import androidx.lifecycle.*
+import com.example.toyproject1.data.model.ItemEntity
+import com.example.toyproject1.data.api.RetrofitApi
+import com.example.toyproject1.domain.usecase.GetItemUseCase
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ItemViewModel: ViewModel() {
+class ItemViewModel(private val getItemUseCase: GetItemUseCase): ViewModel() {
 
-    private val _allData = MutableLiveData<List<Item>>()
-    val allData: LiveData<List<Item>> get() = _allData
+    /*
+    ViewModel 컴포넌트
+       0. UseCase 매개변수
+       1. UI에서 사용할 데이터 변수(_, access 가능)
+       2. UseCase에서 데이터 불러오는 함수
+    */
+
+    private val _allData = MutableStateFlow<List<ItemEntity>>(listOf())
+    val allData: StateFlow<List<ItemEntity>> get() = _allData
 
     init {
         getAllData()
     }
 
     private fun getAllData(){
-        RetrofitApi.retrofitService.getAllData().enqueue(object: Callback<List<Item>> {
-            override fun onResponse(call: Call<List<Item>>, response: Response<List<Item>>) {
-                if(response.isSuccessful)
-                    _allData.value = response.body()
-                else
-                    Log.d("ViewModel" + "isNotSuccessful", response.toString())
+        viewModelScope.launch(){
+            getItemUseCase.execute().collect{
+                Log.d("ItemViewModel", it.toString())
+                _allData.value = it
             }
+        }
+    }
+}
 
-            override fun onFailure(call: Call<List<Item>>, t: Throwable) {
-                Log.d("ViewModel" + "onFailure", t.toString())
-            }
-        })
+class ItemViewModelFactory(private val getItemUseCase: GetItemUseCase): ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return if(modelClass.isAssignableFrom(ItemViewModel::class.java)){
+            ItemViewModel(getItemUseCase) as T
+        } else{
+            throw IllegalArgumentException()
+        }
     }
 }

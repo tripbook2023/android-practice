@@ -1,4 +1,4 @@
-package com.example.toyproject1.ui
+package com.example.toyproject1.ui.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
