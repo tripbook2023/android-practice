@@ -1,4 +1,4 @@
-package com.example.toyproject1.ui.views
+package com.example.toyproject1.presentation.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,25 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.toyproject1.data.ItemRepositoryImpl
-import com.example.toyproject1.ui.RecyclerViewAdapter
 import com.example.toyproject1.databinding.FragmentListBinding
-import com.example.toyproject1.domain.usecase.GetItemUseCase
-import com.example.toyproject1.ui.ItemViewModel
-import com.example.toyproject1.ui.ItemViewModelFactory
+import com.example.toyproject1.presentation.ItemViewModel
+import com.example.toyproject1.presentation.RecyclerViewAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListFragment : Fragment() {
 
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    private val itemViewModel: ItemViewModel by viewModels{
-        ItemViewModelFactory(GetItemUseCase())
-    }
-
+    // by viewModels()에 의해 Hilt 적용 안해도 자동으로 viewModel 주입
+    // viewModel 클래스에 @HiltViewModel 사용
+    private val itemViewModel: ItemViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

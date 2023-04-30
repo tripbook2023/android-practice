@@ -1,15 +1,14 @@
-package com.example.toyproject1.ui
+package com.example.toyproject1.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toyproject1.databinding.ListItemBinding
 import com.example.toyproject1.data.model.ItemEntity
 
-class RecyclerViewAdapter(val clickListener: (ItemEntity) -> Unit)
+class RecyclerViewAdapter constructor (val clickListener: (ItemEntity) -> Unit)
     : ListAdapter<ItemEntity, RecyclerViewAdapter.ViewHolder>(DiffUtil){
 
     class ViewHolder(private var itemBinding: ListItemBinding): RecyclerView.ViewHolder(itemBinding.root) {

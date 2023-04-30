@@ -4,11 +4,12 @@ import android.util.Log
 import com.example.toyproject1.data.ItemRepositoryImpl
 import com.example.toyproject1.data.model.ItemEntity
 import com.example.toyproject1.domain.ItemRepository
+import dagger.hilt.android.scopes.FragmentScoped
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class GetItemUseCase(){ //private val repository: ItemRepository) {
-
-    private val repository = ItemRepositoryImpl()
+// @Scope 지정: GetItemUseCase 인스턴스 사용 범위
+class GetItemUseCase @Inject constructor(private val repository: ItemRepository) {
 
     fun execute(): Flow<List<ItemEntity>>{
         val itemList = repository.getAllItem()

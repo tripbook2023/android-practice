@@ -1,4 +1,4 @@
-package com.example.toyproject1.ui.views
+package com.example.toyproject1.presentation.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.toyproject1.R
 import com.example.toyproject1.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null

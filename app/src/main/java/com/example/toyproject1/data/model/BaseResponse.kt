@@ -1,6 +1,5 @@
 package com.example.toyproject1.data.model
 
-// 에러 코드 확인에 사용
 data class BaseResponse (
     val result: String,
     val code: Int

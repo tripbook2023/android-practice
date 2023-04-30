@@ -5,12 +5,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.toyproject1.ui.ItemViewModel" />
+            type="com.example.toyproject1.presentation.ItemViewModel" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.views.ListFragment">
+        tools:context=".presentation.views.ListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

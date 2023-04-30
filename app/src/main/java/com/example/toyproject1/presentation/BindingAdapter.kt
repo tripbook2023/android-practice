@@ -1,11 +1,10 @@
-package com.example.toyproject1.ui
+package com.example.toyproject1.presentation
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.toyproject1.data.model.ItemEntity
-import com.example.toyproject1.ui.RecyclerViewAdapter
 
 
 @BindingAdapter("listData")
