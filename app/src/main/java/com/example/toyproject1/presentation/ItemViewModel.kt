@@ -36,15 +36,3 @@ class ItemViewModel @Inject constructor(private val getItemUseCase: GetItemUseCa
         }
     }
 }
-
-// 커스텀 viewModel은 보일러플레이트 코드를 증가시키고, 유지보수가 힘들다.
-// Hilt는 커스텀 viewModelFactory와 같은 종속성 관련 프로젝트를 대신 만들어줌
-//class ItemViewModelFactory @Inject constructor (private val getItemUseCase: GetItemUseCase): ViewModelProvider.Factory {
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        return if(modelClass.isAssignableFrom(ItemViewModel::class.java)){
-//            ItemViewModel(getItemUseCase) as T
-//        } else{
-//            throw IllegalArgumentException()
-//        }
-//    }
-//}
