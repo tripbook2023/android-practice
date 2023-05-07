@@ -2,7 +2,7 @@
 # Plugin Version
 kotlin = "1.8.10"
 androidGradlePlugin = "8.0.0"
-minSDK = "23"
+minSDK = "24"
 targetSDK = "33"
 versionCode = "1"
 versionName = "1.0.0"
@@ -82,8 +82,8 @@ coroutine-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-c
 coroutine-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine"}
 
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
-hiltcompiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
-androidxhiltcompiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxhiltcompiler"}
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxhiltcompiler"}
 
 [bundles]
 navigation = ["navigation-fragment", "navigation-ui"]

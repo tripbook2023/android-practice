@@ -1,8 +1,14 @@
+@file:Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.plugin)
+    alias(libs.plugins.hilt.plugin)
+    id ("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-kapt")
 }
-
+kotlin{
+    jvmToolchain(17)
+}
 android {
     namespace = "com.example.presentation"
     compileSdk = 33
@@ -25,20 +31,47 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    dataBinding {
+        enable = true
     }
 }
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout) // 디폴트에는 없었음
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.test.junit)
+    androidTestImplementation(libs.espresso.core)
+
+    // hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
+
+    // Coroutine
+    implementation(libs.bundles.coroutine)
+
+    // ViewModel
+    implementation(libs.viewmodel)
+
+    // Glide
+    implementation(libs.glide)
+
+    // for viewModel initialize
+    implementation(libs.activity.ktx)
+    implementation(libs.fragment.ktx)
+
+    // Navigation
+    implementation(libs.bundles.navigation)
 }
