@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.presentation">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+<!--SplashActivity 대신 Screen Splash API 사용해 MainActivity에 테마 지정하는 방식도 있음-->
     <application>
-        <activity android:name=".views.MainActivity"
+        <activity
+            android:name=".views.SplashActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -11,5 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".views.MainActivity"
+            android:exported="true">
+        </activity>
     </application>
+
 </manifest>

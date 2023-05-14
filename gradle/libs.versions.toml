@@ -14,6 +14,7 @@ fragment_ktx = "1.5.6"
 appcompat = "1.6.1"
 material = "1.8.0"
 constraintlayout = "2.1.4"
+splashscreen = "1.0.0"
 
 # Test
 junit = "4.13.2"
@@ -34,6 +35,7 @@ moshi_converter = "2.9.0"
 viewmodel = "2.6.0"
 glide = "4.15.1"
 coroutine = "1.6.4"
+lottie = "6.0.0"
 
 [plugins]
 # Project Dependency
@@ -57,6 +59,7 @@ littleRobots = { group = "nl.littlerobots.vcu", name = "plugin", version.ref = "
 
 kotlin-plugin = {module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin"}
 hilt-plugin = {module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt"}
+splashscreen = {module = "androidx.core:core-splashscreen", version.ref = "splashscreen"}
 
 # Google
 material = { group = "com.google.android.material", name = "material", version.ref = "material"}
@@ -85,6 +88,7 @@ hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidxhiltcompiler"}
 
+lottie = {module = "com.airbnb.android:lottie", version.ref = "lottie"}
 [bundles]
 navigation = ["navigation-fragment", "navigation-ui"]
 moshi = ["moshi.converter", "moshi-fragment"]

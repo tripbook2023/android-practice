@@ -5,8 +5,9 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 
-abstract class BaseActivity<B: ViewDataBinding, V: BaseViewModel>(
+abstract class BaseActivity<B: ViewDataBinding, V: ViewModel>(
     @LayoutRes private val layoutResId: Int
 ):AppCompatActivity() {
 

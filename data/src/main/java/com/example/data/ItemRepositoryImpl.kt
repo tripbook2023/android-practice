@@ -2,10 +2,15 @@ package com.example.data
 
 import android.util.Log
 import com.example.data.api.RetrofitService
+import com.example.data.model.RepositoryEntity
 import com.example.domain.Item
 import com.example.domain.ItemRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 class ItemRepositoryImpl @Inject constructor(private val retrofitService: RetrofitService): ItemRepository {
@@ -28,7 +33,22 @@ class ItemRepositoryImpl @Inject constructor(private val retrofitService: Retrof
 
     override fun getItem(login: String): Flow<Item> = flow{
         val item = mapperToDomain(retrofitService.getItem(login))
-        Log.d("RepositoryImpl", item.toString())
         emit(item)
+    }
+
+    private fun getRepository(repository: String){
+        retrofitService.getRepository(repository).enqueue(object: Callback<RepositoryEntity>{
+            override fun onResponse(call: Call<RepositoryEntity>, response: Response<RepositoryEntity>) {
+                if(response.isSuccessful){
+                    Log.d("getRepository", response.body().toString())
+                }else{
+                    Log.e("Not Successful", response.toString())
+                }
+            }
+
+            override fun onFailure(call: Call<RepositoryEntity>, t: Throwable) {
+                Log.d("getRepository Failure", t.toString())
+            }
+        })
     }
 }

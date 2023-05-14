@@ -74,4 +74,10 @@ dependencies {
 
     // Navigation
     implementation(libs.bundles.navigation)
+
+    // splashscreen
+    implementation(libs.splashscreen)
+
+    // lottie
+    implementation(libs.lottie)
 }

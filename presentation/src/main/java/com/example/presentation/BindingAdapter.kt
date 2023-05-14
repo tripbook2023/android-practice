@@ -10,7 +10,6 @@ import com.example.domain.Item
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Item>?){
-    Log.d("BindingAdapter", data.toString())
     val adapter = recyclerView.adapter as RecyclerViewAdapter
     if (data != null) {
         adapter.submitList(data)

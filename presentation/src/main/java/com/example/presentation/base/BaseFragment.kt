@@ -8,9 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
-import com.example.presentation.ItemViewModel
 
 abstract class BaseFragment<B: ViewDataBinding, V: ViewModel>(
     @LayoutRes private val layoutResId: Int
